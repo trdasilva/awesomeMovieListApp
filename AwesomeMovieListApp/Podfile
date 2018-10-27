@@ -1,0 +1,19 @@
+platform :ios, '12.0'
+
+target 'AwesomeMovieListApp' do
+  use_frameworks!
+  
+  pod 'Alamofire', '~> 4.7'
+  # Pods for AwesomeMovieListApp
+
+  target 'AwesomeMovieListAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'AwesomeMovieListAppUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
