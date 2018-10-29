@@ -16,6 +16,8 @@
 		738C6D6E2180166E0073CB34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738C6D6C2180166E0073CB34 /* LaunchScreen.storyboard */; };
 		738C6D792180166E0073CB34 /* AwesomeMovieListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C6D782180166E0073CB34 /* AwesomeMovieListAppTests.swift */; };
 		738C6D842180166E0073CB34 /* AwesomeMovieListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C6D832180166E0073CB34 /* AwesomeMovieListAppUITests.swift */; };
+		73E1195821868362007BEF52 /* MovieListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1195721868362007BEF52 /* MovieListCell.swift */; };
+		73E11960218692CE007BEF52 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1195F218692CE007BEF52 /* UIView+CornerRadius.swift */; };
 		EDCFD6E04BCB589D5F1CBE77 /* Pods_AwesomeMovieListAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BBFE484926BFFFC1D6BA4E /* Pods_AwesomeMovieListAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		738C6D7F2180166E0073CB34 /* AwesomeMovieListAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeMovieListAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		738C6D832180166E0073CB34 /* AwesomeMovieListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMovieListAppUITests.swift; sourceTree = "<group>"; };
 		738C6D852180166E0073CB34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73E1195721868362007BEF52 /* MovieListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCell.swift; sourceTree = "<group>"; };
+		73E1195F218692CE007BEF52 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		81E19E53378E3F0E3E57BEF4 /* Pods_AwesomeMovieListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeMovieListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86666AD96AA864AB1DBBAC9F /* Pods-AwesomeMovieListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeMovieListApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeMovieListApp/Pods-AwesomeMovieListApp.release.xcconfig"; sourceTree = "<group>"; };
 		93A7373C17B3FA84E5FFF1D8 /* Pods-AwesomeMovieListAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeMovieListAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeMovieListAppTests/Pods-AwesomeMovieListAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 		738C6D622180166B0073CB34 /* AwesomeMovieListApp */ = {
 			isa = PBXGroup;
 			children = (
+				73E1195E218692A0007BEF52 /* Extension */,
 				73E119432184112B007BEF52 /* MovieList */,
 				73E119442184113A007BEF52 /* MovieDetail */,
 				738C6D632180166B0073CB34 /* AppDelegate.swift */,
@@ -180,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				738C6D652180166B0073CB34 /* MovieListView.swift */,
+				73E1195721868362007BEF52 /* MovieListCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -217,6 +223,14 @@
 			children = (
 			);
 			path = entity;
+			sourceTree = "<group>";
+		};
+		73E1195E218692A0007BEF52 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				73E1195F218692CE007BEF52 /* UIView+CornerRadius.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		7DC3C3880B7BF1203512CFF8 /* Frameworks */ = {
@@ -457,6 +471,8 @@
 			files = (
 				738C6D662180166B0073CB34 /* MovieListView.swift in Sources */,
 				738C6D642180166B0073CB34 /* AppDelegate.swift in Sources */,
+				73E1195821868362007BEF52 /* MovieListCell.swift in Sources */,
+				73E11960218692CE007BEF52 /* UIView+CornerRadius.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
