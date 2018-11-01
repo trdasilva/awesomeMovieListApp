@@ -18,6 +18,11 @@
 		738C6D842180166E0073CB34 /* AwesomeMovieListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C6D832180166E0073CB34 /* AwesomeMovieListAppUITests.swift */; };
 		73E1195821868362007BEF52 /* MovieListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1195721868362007BEF52 /* MovieListCell.swift */; };
 		73E11960218692CE007BEF52 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1195F218692CE007BEF52 /* UIView+CornerRadius.swift */; };
+		73E119632186A95E007BEF52 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E119622186A95E007BEF52 /* Movie.swift */; };
+		73E119652186AC00007BEF52 /* MoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E119642186AC00007BEF52 /* MoviesRepository.swift */; };
+		73E119682186B287007BEF52 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E119672186B287007BEF52 /* Config.swift */; };
+		73E1196D2186BE6F007BEF52 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1196C2186BE6F007BEF52 /* Genre.swift */; };
+		73E1196F2186BFDD007BEF52 /* GenresRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1196E2186BFDD007BEF52 /* GenresRepository.swift */; };
 		EDCFD6E04BCB589D5F1CBE77 /* Pods_AwesomeMovieListAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BBFE484926BFFFC1D6BA4E /* Pods_AwesomeMovieListAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +61,11 @@
 		738C6D852180166E0073CB34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73E1195721868362007BEF52 /* MovieListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCell.swift; sourceTree = "<group>"; };
 		73E1195F218692CE007BEF52 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
+		73E119622186A95E007BEF52 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		73E119642186AC00007BEF52 /* MoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepository.swift; sourceTree = "<group>"; };
+		73E119672186B287007BEF52 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		73E1196C2186BE6F007BEF52 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		73E1196E2186BFDD007BEF52 /* GenresRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresRepository.swift; sourceTree = "<group>"; };
 		81E19E53378E3F0E3E57BEF4 /* Pods_AwesomeMovieListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeMovieListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86666AD96AA864AB1DBBAC9F /* Pods-AwesomeMovieListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeMovieListApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeMovieListApp/Pods-AwesomeMovieListApp.release.xcconfig"; sourceTree = "<group>"; };
 		93A7373C17B3FA84E5FFF1D8 /* Pods-AwesomeMovieListAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeMovieListAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeMovieListAppTests/Pods-AwesomeMovieListAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,7 +141,7 @@
 		738C6D622180166B0073CB34 /* AwesomeMovieListApp */ = {
 			isa = PBXGroup;
 			children = (
-				73E1195E218692A0007BEF52 /* Extension */,
+				73E119662186B1A3007BEF52 /* Common */,
 				73E119432184112B007BEF52 /* MovieList */,
 				73E119442184113A007BEF52 /* MovieDetail */,
 				738C6D632180166B0073CB34 /* AppDelegate.swift */,
@@ -164,7 +174,7 @@
 		73E119432184112B007BEF52 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
-				73E1194A2184E37C007BEF52 /* entity */,
+				73E119612186A8FA007BEF52 /* entity */,
 				73E1194921841265007BEF52 /* protocol */,
 				73E119482184124C007BEF52 /* presenter */,
 				73E1194721841243007BEF52 /* router */,
@@ -193,6 +203,8 @@
 		73E1194621841235007BEF52 /* interactor */ = {
 			isa = PBXGroup;
 			children = (
+				73E119642186AC00007BEF52 /* MoviesRepository.swift */,
+				73E1196E2186BFDD007BEF52 /* GenresRepository.swift */,
 			);
 			path = interactor;
 			sourceTree = "<group>";
@@ -218,19 +230,38 @@
 			path = protocol;
 			sourceTree = "<group>";
 		};
-		73E1194A2184E37C007BEF52 /* entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = entity;
-			sourceTree = "<group>";
-		};
 		73E1195E218692A0007BEF52 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				73E1195F218692CE007BEF52 /* UIView+CornerRadius.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		73E119612186A8FA007BEF52 /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				73E119622186A95E007BEF52 /* Movie.swift */,
+			);
+			path = entity;
+			sourceTree = "<group>";
+		};
+		73E119662186B1A3007BEF52 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				73E1196B2186BE5F007BEF52 /* Entity */,
+				73E1195E218692A0007BEF52 /* Extension */,
+				73E119672186B287007BEF52 /* Config.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		73E1196B2186BE5F007BEF52 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				73E1196C2186BE6F007BEF52 /* Genre.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		7DC3C3880B7BF1203512CFF8 /* Frameworks */ = {
@@ -428,12 +459,24 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMovieListApp/Pods-AwesomeMovieListApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire+ObjectMapper/RxAlamofire_ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire_ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -472,7 +515,12 @@
 				738C6D662180166B0073CB34 /* MovieListView.swift in Sources */,
 				738C6D642180166B0073CB34 /* AppDelegate.swift in Sources */,
 				73E1195821868362007BEF52 /* MovieListCell.swift in Sources */,
+				73E119682186B287007BEF52 /* Config.swift in Sources */,
 				73E11960218692CE007BEF52 /* UIView+CornerRadius.swift in Sources */,
+				73E119652186AC00007BEF52 /* MoviesRepository.swift in Sources */,
+				73E119632186A95E007BEF52 /* Movie.swift in Sources */,
+				73E1196D2186BE6F007BEF52 /* Genre.swift in Sources */,
+				73E1196F2186BFDD007BEF52 /* GenresRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
