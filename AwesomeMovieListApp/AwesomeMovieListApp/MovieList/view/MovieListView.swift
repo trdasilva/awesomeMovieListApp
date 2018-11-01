@@ -13,6 +13,13 @@ class MovieListView: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let movieRepository = MoviesRepository()
+        movieRepository.getMovies().subscribe(
+            onNext: {(movieList) in
+                print(movieList)},
+            onError: {(error) in print(error)},
+            onCompleted: { print("finished") })
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
