@@ -17,19 +17,19 @@ class MoviesRepository{
     private let upcomingMovieUrl = "/movie/upcoming"
     
     func getMovies() -> (Observable<[Movie]>){
-        return combineMovieListWithGenre(movieList: getMoviesFromRemote())
+        return combineMovieListWithGenre(movieListObservable: getMoviesFromRemote())
     }
     
-    private func combineMovieListWithGenre(movieList: Observable<[Movie]>) -> (Observable<[Movie]>) {
+    private func combineMovieListWithGenre(movieListObservable: Observable<[Movie]>) -> (Observable<[Movie]>) {
         
-        return Observable.zip(movieList,GenresRepository().getGenres())
+        return Observable.zip(movieListObservable,GenresRepository().getGenres())
             .flatMap { (arg: ([Movie], [Int : Genre])) ->
                 (Observable<[Movie]>) in
                 
-                let (arg0, arg1) = arg
-                for movie in arg0 {
+                let (movieList, genreDic) = arg
+                for movie in movieList {
                     movie.genreIds?.forEach({ (genreId: Int) in
-                        let genre = arg1[genreId]
+                        let genre = genreDic[genreId]
                         
                         if(movie.genres == nil){
                             movie.genres = [String]()
@@ -37,8 +37,7 @@ class MoviesRepository{
                         movie.genres?.append((genre?.name!)!)
                     })
                 }
-                
-                return Observable.just(arg0)
+                return Observable.just(movieList)
         }
     }
     
