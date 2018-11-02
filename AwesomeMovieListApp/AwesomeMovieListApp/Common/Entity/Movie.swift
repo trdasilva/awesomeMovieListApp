@@ -17,6 +17,7 @@ class Movie : Mappable  {
     var genres: [String]?
     var backdropImageUrl: String?
     var releaseDate: String?
+    var overview: String?
     
     required init?(map: Map) {
         
@@ -28,5 +29,6 @@ class Movie : Mappable  {
         genreIds <- map["genre_ids"]
         backdropImageUrl <- map["backdrop_path"]
         releaseDate <- map["release_date"]
+        overview <- map["overview"]
     }
 }
