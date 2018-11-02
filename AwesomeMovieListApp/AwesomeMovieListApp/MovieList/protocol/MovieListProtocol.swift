@@ -9,11 +9,11 @@
 import Foundation
 import RxSwift
 
-protocol PresenterToInteractorProtocol {
+protocol MovieListPresenterToInteractorProtocol {
     func getMoviesList() -> (Observable<[Movie]>)
 }
 
-protocol ViewToPresenterProtocol{
+protocol MovieListViewToPresenterProtocol{
     func viewLoaded()
     func getNumberOfRowForSecton(section: Int) -> Int
     func getNumberOfSections() -> Int
@@ -23,7 +23,7 @@ protocol ViewToPresenterProtocol{
     func getMovieImageForRow(rowNumber: Int) ->URL?
 }
 
-protocol PresenterToViewProtocol {
+protocol MovieListPresenterToViewProtocol {
     func updateTableView()
 }
 

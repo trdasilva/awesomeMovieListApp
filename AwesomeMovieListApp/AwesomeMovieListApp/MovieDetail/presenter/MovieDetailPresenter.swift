@@ -8,12 +8,13 @@
 
 import Foundation
 
-class MovieDetailPresenter {
+class MovieDetailPresenter: MovieDetailViewToPresenterProtocol {
     
     var movieData: Movie?
+    var view : MovieDetailPresenterToViewProtocol?
     
-    init(movie: Movie?){
-        self.movieData = movie
+    func viewLoaded(){
+        view?.updateMovieInfo()
     }
     
     func getMovieTitle() -> String?{

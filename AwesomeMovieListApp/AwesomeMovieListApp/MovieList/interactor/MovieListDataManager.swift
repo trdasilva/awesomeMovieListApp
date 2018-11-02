@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class MovieListDataManager: PresenterToInteractorProtocol{
+class MovieListDataManager: MovieListPresenterToInteractorProtocol{
     let moviesRepository = MoviesRepository()
     let genresRepository = GenresRepository()
     

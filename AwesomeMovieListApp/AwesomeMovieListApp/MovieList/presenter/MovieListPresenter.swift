@@ -9,10 +9,10 @@
 import Foundation
 import RxSwift
 
-class MovieListPresenter : ViewToPresenterProtocol {
+class MovieListPresenter : MovieListViewToPresenterProtocol {
     
-    var intereactor : PresenterToInteractorProtocol?
-    var view: PresenterToViewProtocol?
+    var intereactor : MovieListPresenterToInteractorProtocol?
+    var view: MovieListPresenterToViewProtocol?
     let disposeBag = DisposeBag()
     var  movieList : [Movie]? = nil
     
