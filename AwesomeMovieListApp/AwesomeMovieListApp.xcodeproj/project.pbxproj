@@ -15,6 +15,7 @@
 		733E7EB8218C289D008BA123 /* UIImageView+ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EB7218C289D008BA123 /* UIImageView+ImageLoader.swift */; };
 		733E7EBA218C31A7008BA123 /* MovieListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EB9218C31A7008BA123 /* MovieListDataManager.swift */; };
 		733E7EBD218C3664008BA123 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EBC218C3664008BA123 /* MovieDetailView.swift */; };
+		733E7EC0218C447B008BA123 /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EBF218C447B008BA123 /* MovieDetailPresenter.swift */; };
 		738C6D642180166B0073CB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C6D632180166B0073CB34 /* AppDelegate.swift */; };
 		738C6D662180166B0073CB34 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C6D652180166B0073CB34 /* MovieListView.swift */; };
 		738C6D692180166B0073CB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738C6D672180166B0073CB34 /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		733E7EB7218C289D008BA123 /* UIImageView+ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageLoader.swift"; sourceTree = "<group>"; };
 		733E7EB9218C31A7008BA123 /* MovieListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataManager.swift; sourceTree = "<group>"; };
 		733E7EBC218C3664008BA123 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		733E7EBF218C447B008BA123 /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
 		738C6D602180166B0073CB34 /* AwesomeMovieListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeMovieListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738C6D632180166B0073CB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		738C6D652180166B0073CB34 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		733E7EBE218C4442008BA123 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				733E7EBF218C447B008BA123 /* MovieDetailPresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
 		738C6D572180166A0073CB34 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +216,7 @@
 		73E119442184113A007BEF52 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
+				733E7EBE218C4442008BA123 /* presenter */,
 				733E7EBB218C364D008BA123 /* view */,
 			);
 			path = MovieDetail;
@@ -532,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733E7EC0218C447B008BA123 /* MovieDetailPresenter.swift in Sources */,
 				733E7EBD218C3664008BA123 /* MovieDetailView.swift in Sources */,
 				733E7EB4218AAA1D008BA123 /* MovieListProtocol.swift in Sources */,
 				733E7EB6218ABBEA008BA123 /* MovieListRouter.swift in Sources */,
