@@ -9,10 +9,10 @@
 import Foundation
 import RxSwift
 
-class MovieListPresenter : ViewToPresenterProtocol {
+class MovieListPresenter : MovieListViewToPresenterProtocol {
     
-    var intereactor : PresenterToInteractorProtocol?
-    var view: PresenterToViewProtocol?
+    var intereactor : MovieListPresenterToInteractorProtocol?
+    var view: MovieListPresenterToViewProtocol?
     let disposeBag = DisposeBag()
     var  movieList : [Movie]? = nil
     
@@ -43,28 +43,11 @@ class MovieListPresenter : ViewToPresenterProtocol {
     }
     
     func getMovieGenresForRow(rowNumber: Int) -> String?{
-        var movieGenre: String? = nil
-        
-        for genre in movieList?[rowNumber].genres ?? []{
-            
-            if(movieGenre == nil){
-                movieGenre = genre
-            }else{
-                movieGenre?.append(", " + genre)
-            }
-        }
-        return movieGenre
+        return movieList?[rowNumber].genres
     }
     
     func getMovieImageForRow(rowNumber: Int) ->URL?{
-        if(movieList?[rowNumber].backdropImageUrl != nil){
-            return URL(string: Config.imageBaseUrl
-                + movieList![rowNumber].backdropImageUrl!
-                + "?api_key="
-                + Config.apiKey)
-        }else{
-            return nil
-        }
+        return movieList?[rowNumber].backdropImageUrl
     }
     
     func getMovieReleaseDateForRow(rowNumber: Int) -> String?{

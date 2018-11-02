@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class MovieListDataManager: PresenterToInteractorProtocol{
+class MovieListDataManager: MovieListPresenterToInteractorProtocol{
     let moviesRepository = MoviesRepository()
     let genresRepository = GenresRepository()
     
@@ -30,9 +30,10 @@ class MovieListDataManager: PresenterToInteractorProtocol{
                         let genre = genreDic[genreId]
                         
                         if(movie.genres == nil){
-                            movie.genres = [String]()
+                            movie.genres = genre?.name
+                        }else{
+                            movie.genres?.append(", " + (genre?.name!)!)
                         }
-                        movie.genres?.append((genre?.name!)!)
                     })
                 }
                 

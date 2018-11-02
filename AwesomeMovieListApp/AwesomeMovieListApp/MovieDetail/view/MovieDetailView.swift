@@ -9,10 +9,21 @@
 import Foundation
 import UIKit
 
-class MovieDetailView: UIViewController {
+class MovieDetailView: UIViewController, MovieDetailPresenterToViewProtocol{
+    
     @IBOutlet weak var movieBackdropImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieGenres: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var movieReleaseDate: UILabel!
+    
+    var presenter : MovieDetailPresenter?
+    
+    func updateMovieInfo() {
+        movieTitle.text = presenter?.getMovieTitle()
+        movieGenres.text = presenter?.getMovieGenres()
+        movieReleaseDate.text = presenter?.getMovieReleaseDate()
+        movieOverview.text = presenter?.getMovieOverview()
+        movieBackdropImage.loadImage(imageUrl: presenter?.getMovieImage())
+    }
 }

@@ -9,9 +9,9 @@
 import UIKit
 import AlamofireImage
 
-class MovieListView: UITableViewController, PresenterToViewProtocol {
+class MovieListView: UITableViewController, MovieListPresenterToViewProtocol {
 
-    var presenter : ViewToPresenterProtocol? = nil
+    var presenter : MovieListViewToPresenterProtocol? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()

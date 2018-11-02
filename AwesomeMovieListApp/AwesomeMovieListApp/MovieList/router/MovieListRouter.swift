@@ -11,15 +11,17 @@ import UIKit
 
 class MovieListRouter {
     
+    private var movieDataToSend: Movie?
+    
     class func createMovieListModule(movieListView: MovieListView) {
         
             let presenter = MovieListPresenter()
             let interactor = MovieListDataManager()
             //let router = MovieListRouter()
             
-            movieListView.presenter = presenter as ViewToPresenterProtocol
-            presenter.view = movieListView as PresenterToViewProtocol
-            presenter.intereactor = interactor as PresenterToInteractorProtocol
+            movieListView.presenter = presenter as MovieListViewToPresenterProtocol
+            presenter.view = movieListView as MovieListPresenterToViewProtocol
+            presenter.intereactor = interactor as MovieListPresenterToInteractorProtocol
        }
     
     private static var mainStoryboard: UIStoryboard {
