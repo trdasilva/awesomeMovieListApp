@@ -13,6 +13,8 @@ class MovieListPresenter : MovieListViewToPresenterProtocol {
     
     var intereactor : MovieListPresenterToInteractorProtocol?
     var view: MovieListPresenterToViewProtocol?
+    var router: MovieListPresenterToRouterProtocol?
+    
     let disposeBag = DisposeBag()
     var  movieList : [Movie]? = nil
     
@@ -52,5 +54,11 @@ class MovieListPresenter : MovieListViewToPresenterProtocol {
     
     func getMovieReleaseDateForRow(rowNumber: Int) -> String?{
         return movieList?[rowNumber].releaseDate
+    }
+    
+    func movieSelected(rowNumber: Int) {
+        if let movie = movieList?[rowNumber] {
+            router?.showMovieDetail(movieData: movie)
+        }
     }
 }

@@ -21,9 +21,14 @@ protocol MovieListViewToPresenterProtocol{
     func getMovieGenresForRow(rowNumber: Int) -> String?
     func getMovieReleaseDateForRow(rowNumber: Int) -> String?
     func getMovieImageForRow(rowNumber: Int) ->URL?
+    func movieSelected(rowNumber: Int)
 }
 
 protocol MovieListPresenterToViewProtocol {
     func updateTableView()
+}
+
+protocol MovieListPresenterToRouterProtocol {
+    func showMovieDetail(movieData: Movie)
 }
 

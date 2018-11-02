@@ -17,7 +17,11 @@ class MovieDetailView: UIViewController, MovieDetailPresenterToViewProtocol{
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var movieReleaseDate: UILabel!
     
-    var presenter : MovieDetailPresenter?
+    var presenter : MovieDetailViewToPresenterProtocol?
+    
+    override func viewDidLoad() {
+        presenter?.viewLoaded()
+    }
     
     func updateMovieInfo() {
         movieTitle.text = presenter?.getMovieTitle()

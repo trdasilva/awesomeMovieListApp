@@ -16,7 +16,7 @@ class MovieListView: UITableViewController, MovieListPresenterToViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        MovieListRouter.createMovieListModule(movieListView: self)
+        MovieListRouter.createMovieListModule(view: self)
         presenter?.viewLoaded()
     }
 
@@ -30,6 +30,12 @@ class MovieListView: UITableViewController, MovieListPresenterToViewProtocol {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return presenter?.getNumberOfSections() ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        presenter?.movieSelected(rowNumber: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

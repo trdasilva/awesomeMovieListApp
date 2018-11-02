@@ -9,22 +9,29 @@
 import Foundation
 import UIKit
 
-class MovieListRouter {
+class MovieListRouter : MovieListPresenterToRouterProtocol{
     
-    private var movieDataToSend: Movie?
+    weak var viewController: UIViewController?
     
-    class func createMovieListModule(movieListView: MovieListView) {
+    class func createMovieListModule(view: MovieListView) {
         
             let presenter = MovieListPresenter()
             let interactor = MovieListDataManager()
-            //let router = MovieListRouter()
+            let router = MovieListRouter()
             
-            movieListView.presenter = presenter as MovieListViewToPresenterProtocol
-            presenter.view = movieListView as MovieListPresenterToViewProtocol
+            view.presenter = presenter as MovieListViewToPresenterProtocol
+            presenter.view = view as MovieListPresenterToViewProtocol
             presenter.intereactor = interactor as MovieListPresenterToInteractorProtocol
-       }
+            presenter.router = router as MovieListPresenterToRouterProtocol
+            router.viewController = view
+    }
     
-    private static var mainStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: Bundle.main)
+    func showMovieDetail(movieData: Movie) {
+        
+        if let movieDetailView = MovieDetailRouter.createMovieDetailModule(movie: movieData){
+            if let sourceView = viewController {
+                sourceView.navigationController?.pushViewController(movieDetailView, animated: true)
+            }
+        }
     }
 }
