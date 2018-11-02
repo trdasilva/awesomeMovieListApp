@@ -12,36 +12,11 @@ import RxAlamofire
 import RxAlamofire_ObjectMapper
 import RxSwift
 
-class MoviesRepository : PresenterToInteractorProtocol{
+class MoviesRepository{
     
     private let upcomingMovieUrl = "/movie/upcoming"
     
-    func getMoviesList() -> (Observable<[Movie]>){
-        return combineMovieListWithGenre(movieListObservable: getMoviesFromRemote())
-    }
-    
-    private func combineMovieListWithGenre(movieListObservable: Observable<[Movie]>) -> (Observable<[Movie]>) {
-        
-        return Observable.zip(movieListObservable,GenresRepository().getGenres())
-            .flatMap { (arg: ([Movie], [Int : Genre])) ->
-                (Observable<[Movie]>) in
-                
-                let (movieList, genreDic) = arg
-                for movie in movieList {
-                    movie.genreIds?.forEach({ (genreId: Int) in
-                        let genre = genreDic[genreId]
-                        
-                        if(movie.genres == nil){
-                            movie.genres = [String]()
-                        }
-                        movie.genres?.append((genre?.name!)!)
-                    })
-                }
-                return Observable.just(movieList)
-        }
-    }
-    
-    private func getMoviesFromRemote() -> (Observable<[Movie]>) {
+    public func getMovies() -> (Observable<[Movie]>) {
         
         let parameters: Parameters = [
             "api_key": Config.apiKey

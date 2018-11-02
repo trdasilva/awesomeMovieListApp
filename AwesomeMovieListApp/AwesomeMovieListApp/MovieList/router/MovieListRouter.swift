@@ -14,8 +14,8 @@ class MovieListRouter {
     class func createMovieListModule(movieListView: MovieListView) {
         
             let presenter = MovieListPresenter()
-            let interactor = MoviesRepository()
-            let router = MovieListRouter()
+            let interactor = MovieListDataManager()
+            //let router = MovieListRouter()
             
             movieListView.presenter = presenter as ViewToPresenterProtocol
             presenter.view = movieListView as PresenterToViewProtocol
