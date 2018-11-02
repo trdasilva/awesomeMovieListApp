@@ -12,6 +12,7 @@
 		733E7EB2218AA632008BA123 /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EB1218AA632008BA123 /* MovieListPresenter.swift */; };
 		733E7EB4218AAA1D008BA123 /* MovieListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EB3218AAA1D008BA123 /* MovieListProtocol.swift */; };
 		733E7EB6218ABBEA008BA123 /* MovieListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EB5218ABBEA008BA123 /* MovieListRouter.swift */; };
+		733E7EB8218C289D008BA123 /* UIImageView+ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EB7218C289D008BA123 /* UIImageView+ImageLoader.swift */; };
 		738C6D642180166B0073CB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C6D632180166B0073CB34 /* AppDelegate.swift */; };
 		738C6D662180166B0073CB34 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C6D652180166B0073CB34 /* MovieListView.swift */; };
 		738C6D692180166B0073CB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738C6D672180166B0073CB34 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		733E7EB1218AA632008BA123 /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
 		733E7EB3218AAA1D008BA123 /* MovieListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListProtocol.swift; sourceTree = "<group>"; };
 		733E7EB5218ABBEA008BA123 /* MovieListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRouter.swift; sourceTree = "<group>"; };
+		733E7EB7218C289D008BA123 /* UIImageView+ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageLoader.swift"; sourceTree = "<group>"; };
 		738C6D602180166B0073CB34 /* AwesomeMovieListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeMovieListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738C6D632180166B0073CB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		738C6D652180166B0073CB34 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				73E1195F218692CE007BEF52 /* UIView+CornerRadius.swift */,
+				733E7EB7218C289D008BA123 /* UIImageView+ImageLoader.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMovieListApp/Pods-AwesomeMovieListApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
@@ -480,6 +484,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
@@ -531,6 +536,7 @@
 				73E119652186AC00007BEF52 /* MoviesRepository.swift in Sources */,
 				73E119632186A95E007BEF52 /* Movie.swift in Sources */,
 				73E1196D2186BE6F007BEF52 /* Genre.swift in Sources */,
+				733E7EB8218C289D008BA123 /* UIImageView+ImageLoader.swift in Sources */,
 				73E1196F2186BFDD007BEF52 /* GenresRepository.swift in Sources */,
 				733E7EB2218AA632008BA123 /* MovieListPresenter.swift in Sources */,
 			);

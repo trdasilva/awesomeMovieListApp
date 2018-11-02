@@ -10,6 +10,7 @@ target 'AwesomeMovieListApp' do
   pod 'RxAlamofire', '~> 4.3'
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
+  pod 'AlamofireImage', '~> 3.4'
   # Pods for AwesomeMovieListApp
 
   target 'AwesomeMovieListAppTests' do
