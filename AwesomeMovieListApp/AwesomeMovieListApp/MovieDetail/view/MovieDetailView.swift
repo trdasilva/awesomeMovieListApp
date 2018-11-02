@@ -20,6 +20,10 @@ class MovieDetailView: UIViewController, MovieDetailPresenterToViewProtocol{
     var presenter : MovieDetailPresenter?
     
     func updateMovieInfo() {
-        
+        movieTitle.text = presenter?.getMovieTitle()
+        movieGenres.text = presenter?.getMovieGenres()
+        movieReleaseDate.text = presenter?.getMovieReleaseDate()
+        movieOverview.text = presenter?.getMovieOverview()
+        movieBackdropImage.loadImage(imageUrl: presenter?.getMovieImage())
     }
 }

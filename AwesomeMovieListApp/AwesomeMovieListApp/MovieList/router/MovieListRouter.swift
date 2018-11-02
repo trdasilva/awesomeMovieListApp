@@ -11,6 +11,8 @@ import UIKit
 
 class MovieListRouter {
     
+    private var movieDataToSend: Movie?
+    
     class func createMovieListModule(movieListView: MovieListView) {
         
             let presenter = MovieListPresenter()
