@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		05378DD5FCC46BA776621CB8 /* Pods_AwesomeMovieListAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62624344A1E61FC05D5B7F33 /* Pods_AwesomeMovieListAppTests.framework */; };
 		34AE87E838FC8D4ABCE4A103 /* Pods_AwesomeMovieListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81E19E53378E3F0E3E57BEF4 /* Pods_AwesomeMovieListApp.framework */; };
+		733E7EB2218AA632008BA123 /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EB1218AA632008BA123 /* MovieListPresenter.swift */; };
+		733E7EB4218AAA1D008BA123 /* MovieListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EB3218AAA1D008BA123 /* MovieListProtocol.swift */; };
+		733E7EB6218ABBEA008BA123 /* MovieListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733E7EB5218ABBEA008BA123 /* MovieListRouter.swift */; };
 		738C6D642180166B0073CB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C6D632180166B0073CB34 /* AppDelegate.swift */; };
 		738C6D662180166B0073CB34 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C6D652180166B0073CB34 /* MovieListView.swift */; };
 		738C6D692180166B0073CB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738C6D672180166B0073CB34 /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 /* Begin PBXFileReference section */
 		62624344A1E61FC05D5B7F33 /* Pods_AwesomeMovieListAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeMovieListAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BBFE484926BFFFC1D6BA4E /* Pods_AwesomeMovieListAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeMovieListAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		733E7EB1218AA632008BA123 /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
+		733E7EB3218AAA1D008BA123 /* MovieListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListProtocol.swift; sourceTree = "<group>"; };
+		733E7EB5218ABBEA008BA123 /* MovieListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRouter.swift; sourceTree = "<group>"; };
 		738C6D602180166B0073CB34 /* AwesomeMovieListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeMovieListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738C6D632180166B0073CB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		738C6D652180166B0073CB34 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 		73E1194721841243007BEF52 /* router */ = {
 			isa = PBXGroup;
 			children = (
+				733E7EB5218ABBEA008BA123 /* MovieListRouter.swift */,
 			);
 			path = router;
 			sourceTree = "<group>";
@@ -219,6 +226,7 @@
 		73E119482184124C007BEF52 /* presenter */ = {
 			isa = PBXGroup;
 			children = (
+				733E7EB1218AA632008BA123 /* MovieListPresenter.swift */,
 			);
 			path = presenter;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 		73E1194921841265007BEF52 /* protocol */ = {
 			isa = PBXGroup;
 			children = (
+				733E7EB3218AAA1D008BA123 /* MovieListProtocol.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -512,6 +521,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733E7EB4218AAA1D008BA123 /* MovieListProtocol.swift in Sources */,
+				733E7EB6218ABBEA008BA123 /* MovieListRouter.swift in Sources */,
 				738C6D662180166B0073CB34 /* MovieListView.swift in Sources */,
 				738C6D642180166B0073CB34 /* AppDelegate.swift in Sources */,
 				73E1195821868362007BEF52 /* MovieListCell.swift in Sources */,
@@ -521,6 +532,7 @@
 				73E119632186A95E007BEF52 /* Movie.swift in Sources */,
 				73E1196D2186BE6F007BEF52 /* Genre.swift in Sources */,
 				73E1196F2186BFDD007BEF52 /* GenresRepository.swift in Sources */,
+				733E7EB2218AA632008BA123 /* MovieListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

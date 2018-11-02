@@ -12,11 +12,11 @@ import RxAlamofire
 import RxAlamofire_ObjectMapper
 import RxSwift
 
-class MoviesRepository{
+class MoviesRepository : PresenterToInteractorProtocol{
     
     private let upcomingMovieUrl = "/movie/upcoming"
     
-    func getMovies() -> (Observable<[Movie]>){
+    func getMoviesList() -> (Observable<[Movie]>){
         return combineMovieListWithGenre(movieListObservable: getMoviesFromRemote())
     }
     
