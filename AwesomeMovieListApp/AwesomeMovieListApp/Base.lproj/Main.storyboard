@@ -11,8 +11,8 @@
         <!--Movie List View-->
         <scene sceneID="3y9-XR-gdC">
             <objects>
-                <tableViewController id="lxz-V8-NCR" customClass="MovieListView" customModule="AwesomeMovieListApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="N3O-St-VWD">
+                <tableViewController storyboardIdentifier="movieListView" id="lxz-V8-NCR" customClass="MovieListView" customModule="AwesomeMovieListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="N3O-St-VWD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.901518485915493" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,8 +52,8 @@
                                                                     </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action, Suspense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yq-B2-Eoi">
-                                                                    <rect key="frame" x="8" y="28" width="313" height="14"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action, Suspense" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yq-B2-Eoi">
+                                                                    <rect key="frame" x="8" y="30" width="313" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -75,17 +75,18 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="9Yq-B2-Eoi" secondAttribute="trailing" constant="8" id="2Nj-uW-UUu"/>
                                                                 <constraint firstItem="m1u-ZK-2a1" firstAttribute="top" secondItem="zmM-J2-JoF" secondAttribute="bottom" id="6Xd-os-P69"/>
+                                                                <constraint firstItem="zmM-J2-JoF" firstAttribute="top" secondItem="9Yq-B2-Eoi" secondAttribute="bottom" constant="8" id="90Z-ZC-wbr"/>
                                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="m1u-ZK-2a1" secondAttribute="trailing" constant="251.5" id="DoQ-6W-SjE"/>
                                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="zmM-J2-JoF" secondAttribute="trailing" constant="241" id="G9A-dH-tCa"/>
                                                                 <constraint firstItem="zmM-J2-JoF" firstAttribute="leading" secondItem="P0g-bX-yEA" secondAttribute="leading" constant="8" id="Gwr-Ib-oFb"/>
-                                                                <constraint firstItem="9Yq-B2-Eoi" firstAttribute="top" secondItem="6Yh-iJ-rnq" secondAttribute="bottom" id="Mv5-x6-tGc"/>
+                                                                <constraint firstItem="9Yq-B2-Eoi" firstAttribute="top" secondItem="6Yh-iJ-rnq" secondAttribute="bottom" constant="2" id="Mv5-x6-tGc"/>
                                                                 <constraint firstAttribute="trailing" secondItem="6Yh-iJ-rnq" secondAttribute="trailing" constant="8" id="Tqt-cS-dYL"/>
                                                                 <constraint firstItem="6Yh-iJ-rnq" firstAttribute="top" secondItem="P0g-bX-yEA" secondAttribute="top" id="bTA-iI-j7x"/>
                                                                 <constraint firstItem="6Yh-iJ-rnq" firstAttribute="leading" secondItem="P0g-bX-yEA" secondAttribute="leading" constant="8" id="bdg-fz-OXV"/>
                                                                 <constraint firstAttribute="bottom" secondItem="m1u-ZK-2a1" secondAttribute="bottom" constant="7" id="fu2-X2-b9k"/>
                                                                 <constraint firstItem="m1u-ZK-2a1" firstAttribute="leading" secondItem="P0g-bX-yEA" secondAttribute="leading" constant="8" id="jLV-J3-WLN"/>
                                                                 <constraint firstItem="9Yq-B2-Eoi" firstAttribute="leading" secondItem="P0g-bX-yEA" secondAttribute="leading" constant="8" id="kLY-Vg-J1N"/>
-                                                                <constraint firstItem="9Yq-B2-Eoi" firstAttribute="top" secondItem="6Yh-iJ-rnq" secondAttribute="bottom" id="rkT-31-fSo"/>
+                                                                <constraint firstItem="9Yq-B2-Eoi" firstAttribute="top" secondItem="6Yh-iJ-rnq" secondAttribute="bottom" constant="2" id="rkT-31-fSo"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -137,10 +138,11 @@
                             <outlet property="delegate" destination="lxz-V8-NCR" id="LTH-DR-9VE"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="duS-iF-STk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wze-jq-Ipn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43.478260869565219" y="-76.339285714285708"/>
+            <point key="canvasLocation" x="-681" y="-163"/>
         </scene>
     </scenes>
     <resources>
