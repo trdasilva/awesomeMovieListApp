@@ -31,9 +31,10 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAp-Ic-YqC">
                                                     <rect key="frame" x="43" y="15" width="329" height="280"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backdrop" translatesAutoresizingMaskIntoConstraints="NO" id="sqo-CJ-FEi">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="sqo-CJ-FEi">
                                                             <rect key="frame" x="0.0" y="0.0" width="329" height="184"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="width" secondItem="sqo-CJ-FEi" secondAttribute="height" multiplier="329:184" id="R9s-sx-LZ7"/>
                                                                 <constraint firstAttribute="height" constant="184" id="aWo-I4-aIW"/>
                                                             </constraints>
                                                         </imageView>
@@ -146,6 +147,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backdrop" width="300" height="169"/>
+        <image name="image_placeholder" width="300" height="300"/>
     </resources>
 </document>

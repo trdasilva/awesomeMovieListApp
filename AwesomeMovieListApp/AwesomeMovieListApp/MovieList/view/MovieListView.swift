@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MovieListView: UITableViewController, PresenterToViewProtocol {
 
@@ -38,6 +39,7 @@ class MovieListView: UITableViewController, PresenterToViewProtocol {
         cell.movieName.text = presenter?.getMovieTitleForRow(rowNumber: indexPath.row)
         cell.movieGenre.text = presenter?.getMovieGenresForRow(rowNumber: indexPath.row)
         cell.releaseDate.text = presenter?.getMovieReleaseDateForRow(rowNumber: indexPath.row)
+        cell.backdropImage.loadImage(imageUrl: presenter?.getMovieImageForRow(rowNumber: indexPath.row))
         
         return cell
     }

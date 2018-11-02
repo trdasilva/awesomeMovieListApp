@@ -15,12 +15,12 @@ protocol PresenterToInteractorProtocol {
 
 protocol ViewToPresenterProtocol{
     func viewLoaded()
-    func viewDisappeared()
     func getNumberOfRowForSecton(section: Int) -> Int
     func getNumberOfSections() -> Int
     func getMovieTitleForRow(rowNumber: Int) -> String?
     func getMovieGenresForRow(rowNumber: Int) -> String?
     func getMovieReleaseDateForRow(rowNumber: Int) -> String?
+    func getMovieImageForRow(rowNumber: Int) ->URL?
 }
 
 protocol PresenterToViewProtocol {

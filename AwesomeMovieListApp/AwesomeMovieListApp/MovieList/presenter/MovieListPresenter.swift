@@ -41,6 +41,7 @@ class MovieListPresenter : ViewToPresenterProtocol {
     func getMovieTitleForRow(rowNumber: Int) -> String?{
         return movieList?[rowNumber].title
     }
+    
     func getMovieGenresForRow(rowNumber: Int) -> String?{
         var movieGenre: String? = nil
         
@@ -54,11 +55,19 @@ class MovieListPresenter : ViewToPresenterProtocol {
         }
         return movieGenre
     }
+    
+    func getMovieImageForRow(rowNumber: Int) ->URL?{
+        if(movieList?[rowNumber].backdropImageUrl != nil){
+            return URL(string: Config.imageBaseUrl
+                + movieList![rowNumber].backdropImageUrl!
+                + "?api_key="
+                + Config.apiKey)
+        }else{
+            return nil
+        }
+    }
+    
     func getMovieReleaseDateForRow(rowNumber: Int) -> String?{
         return movieList?[rowNumber].releaseDate
-    }
-
-    func viewDisappeared() {
-        
     }
 }
