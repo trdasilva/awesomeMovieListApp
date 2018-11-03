@@ -16,14 +16,15 @@ class MoviesRepository{
     
     private let upcomingMovieUrl = "/movie/upcoming"
     
-    public func getMovies() -> (Observable<[Movie]>) {
+    public func getMoviesPage(page: Int) -> (Observable<MovieListPage>) {
         
         let parameters: Parameters = [
-            "api_key": Config.apiKey
+            "api_key": Config.apiKey,
+            "page": page
         ]
         let getUpcomingMovieUrl = Config.baseUrl + self.upcomingMovieUrl
         
         return RxAlamofire.request(.get ,getUpcomingMovieUrl, parameters: parameters)
-            .responseMappableArray(as: Movie.self, keyPath: "results")
+            .responseMappable(as: MovieListPage.self)
     }
 }

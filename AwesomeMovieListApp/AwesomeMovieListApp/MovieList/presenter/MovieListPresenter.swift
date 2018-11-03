@@ -17,23 +17,74 @@ class MovieListPresenter : MovieListViewToPresenterProtocol {
     
     let disposeBag = DisposeBag()
     var  movieList : [Movie]? = nil
+    var currentPage: Int = 0
+    var totalPages: Int = 0
+    var totalMovies: Int = 0
+    
+    var isLoadingMovies = false
     
     func viewLoaded() {
-        intereactor?.getMoviesList().subscribe(
-            onNext: { movies in
-                self.movieList = movies
+        getMoreMovies()
+    }
+    
+    func isPrefetchNeeded(index: IndexPath) -> Bool{
+        return !isMovieDataAvailable(index:index)
+    }
+    
+    func isMovieDataAvailable(index: IndexPath) -> Bool{
+        if(index.row < movieList?.count ?? 0){
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func prefetchMoreMovies(){
+        getMoreMovies()
+    }
+    
+    private func getMoreMovies(){
+        fetchMoviesPage(page: currentPage + 1)
+    }
+    
+    private func fetchMoviesPage(page: Int){
+        
+        guard !isLoadingMovies else {
+            return
+        }
+        isLoadingMovies = true
+        
+        intereactor?.getMovieListPage(pageNumber: page).subscribe(
+            onNext: { moviePage in
+                self.updateMovieInfo(moviePage: moviePage)
         },
             onError: { error in
                 print("An error occurred :" + error.localizedDescription)
+                self.isLoadingMovies = false
         },
             onCompleted: {
                 self.view?.updateTableView()
+                self.isLoadingMovies = false
         }
-        ).disposed(by: disposeBag)
+            ).disposed(by: disposeBag)
+    }
+    
+    private func updateMovieInfo(moviePage: MovieListPage){
+        self.currentPage = moviePage.currentPage!
+        self.totalPages = moviePage.totalPages!
+        self.totalMovies = moviePage.totalSize!
+        
+        if let movies = moviePage.movieList{
+            if(movieList == nil){
+                self.movieList = movies
+            }else{
+                self.movieList?.append(contentsOf: movies)
+            }
+        }
     }
     
     func getNumberOfRowForSecton(section: Int) -> Int {
-        return movieList?.count ?? 0
+        return totalMovies
     }
     
     func getNumberOfSections() -> Int{
@@ -49,7 +100,11 @@ class MovieListPresenter : MovieListViewToPresenterProtocol {
     }
     
     func getMovieImageForRow(rowNumber: Int) ->URL?{
-        return movieList?[rowNumber].backdropImageUrl
+        if let backdropUrl = movieList?[rowNumber].backdropImageUrl {
+                return backdropUrl
+        }else{
+            return movieList?[rowNumber].posterImageUrl
+        }
     }
     
     func getMovieReleaseDateForRow(rowNumber: Int) -> String?{

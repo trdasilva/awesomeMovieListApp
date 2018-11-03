@@ -13,31 +13,37 @@ class MovieListDataManager: MovieListPresenterToInteractorProtocol{
     let moviesRepository = MoviesRepository()
     let genresRepository = GenresRepository()
     
-    
-    func getMoviesList() -> (Observable<[Movie]>){
-        return combineMovieListWithGenre()
+    func getMovieListPage(pageNumber: Int) -> (Observable<MovieListPage>){
+        return combineMovieListPageWithGenre(page: pageNumber)
     }
     
-    private func combineMovieListWithGenre() -> (Observable<[Movie]>) {
+    private func combineMovieListPageWithGenre(page: Int) -> (Observable<MovieListPage>) {
         
-        return Observable.zip(moviesRepository.getMovies(),genresRepository.getGenres())
-            .flatMap { (arg: ([Movie], [Int : Genre])) ->
-                (Observable<[Movie]>) in
-                    let (movieList, genreDic) = arg
+        return Observable.zip(moviesRepository.getMoviesPage(page: page),genresRepository.getGenres())
+            .flatMap { (arg: (MovieListPage, [Int : Genre])) ->
+                (Observable<MovieListPage>) in
+                    let (movieResponse, genreDic) = arg
                 
-                for movie in movieList {
-                    movie.genreIds?.forEach({ (genreId: Int) in
-                        let genre = genreDic[genreId]
-                        
-                        if(movie.genres == nil){
-                            movie.genres = genre?.name
-                        }else{
-                            movie.genres?.append(", " + (genre?.name!)!)
-                        }
-                    })
-                }
+                movieResponse.movieList?.forEach({ movie in
+                       movie.genres = self.getMovieGenres(movie: movie, genres: genreDic)
+                })
                 
-            return Observable.just(movieList)
+                return Observable.just(movieResponse)
         }
+    }
+    
+    private func getMovieGenres(movie: Movie, genres: [Int : Genre]) -> String?{
+        var genreText: String? = nil
+        
+        movie.genreIds?.forEach({ (genreId: Int) in
+            let genre = genres[genreId]
+            if(genreText == nil){
+                genreText = genre?.name
+            }else{
+                genreText?.append(", " + (genre?.name!)!)
+            }
+        })
+        
+        return genreText
     }
 }
