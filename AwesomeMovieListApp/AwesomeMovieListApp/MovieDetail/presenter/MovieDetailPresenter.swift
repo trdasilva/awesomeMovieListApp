@@ -26,7 +26,11 @@ class MovieDetailPresenter: MovieDetailViewToPresenterProtocol {
     }
     
     func getMovieImage() ->URL?{
-        return movieData?.backdropImageUrl
+        if let backdropUrl = movieData?.backdropImageUrl {
+            return backdropUrl
+        }else{
+            return movieData?.posterImageUrl
+        }
     }
     
     func getMovieReleaseDate() -> String?{

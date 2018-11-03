@@ -10,11 +10,14 @@ import Foundation
 import RxSwift
 
 protocol MovieListPresenterToInteractorProtocol {
-    func getMoviesList() -> (Observable<[Movie]>)
+    func getMovieListPage(pageNumber: Int) -> (Observable<MovieListPage>)
 }
 
 protocol MovieListViewToPresenterProtocol{
     func viewLoaded()
+    func isMovieDataAvailable(index: IndexPath) -> Bool
+    func isPrefetchNeeded(index: IndexPath) -> Bool
+    func prefetchMoreMovies()
     func getNumberOfRowForSecton(section: Int) -> Int
     func getNumberOfSections() -> Int
     func getMovieTitleForRow(rowNumber: Int) -> String?

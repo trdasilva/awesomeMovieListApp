@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class MovieListView: UITableViewController, MovieListPresenterToViewProtocol {
+class MovieListView: UITableViewController, UITableViewDataSourcePrefetching,MovieListPresenterToViewProtocol {
 
     var presenter : MovieListViewToPresenterProtocol? = nil
     
@@ -38,16 +38,31 @@ class MovieListView: UITableViewController, MovieListPresenterToViewProtocol {
         presenter?.movieSelected(rowNumber: indexPath.row)
     }
     
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: (presenter?.isPrefetchNeeded)!) {
+            presenter?.prefetchMoreMovies()
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movieListCell", for: indexPath) as! MovieListCell
-        
-        cell.movieName.text = presenter?.getMovieTitleForRow(rowNumber: indexPath.row)
-        cell.movieGenre.text = presenter?.getMovieGenresForRow(rowNumber: indexPath.row)
-        cell.releaseDate.text = presenter?.getMovieReleaseDateForRow(rowNumber: indexPath.row)
-        cell.backdropImage.loadImage(imageUrl: presenter?.getMovieImageForRow(rowNumber: indexPath.row))
-        
-        return cell
+        if(presenter?.isMovieDataAvailable(index: indexPath) ?? false){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "movieListCell", for: indexPath) as! MovieListCell
+            
+            cell.movieName.text = presenter?.getMovieTitleForRow(rowNumber: indexPath.row)
+            cell.movieGenre.text = presenter?.getMovieGenresForRow(rowNumber: indexPath.row)
+            cell.releaseDate.text = presenter?.getMovieReleaseDateForRow(rowNumber: indexPath.row)
+            
+            if let url = presenter?.getMovieImageForRow(rowNumber: indexPath.row){
+                cell.backdropImage.loadImage(imageUrl:url)
+            }else{
+                cell.backdropImage.image = Image.init(named: "no_image")
+            }
+            
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingMovieListCell", for: indexPath) as! MovieListCell
+            return cell
+        }
     }
 }
-

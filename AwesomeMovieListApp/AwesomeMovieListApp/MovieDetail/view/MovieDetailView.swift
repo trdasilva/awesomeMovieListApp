@@ -28,6 +28,11 @@ class MovieDetailView: UIViewController, MovieDetailPresenterToViewProtocol{
         movieGenres.text = presenter?.getMovieGenres()
         movieReleaseDate.text = presenter?.getMovieReleaseDate()
         movieOverview.text = presenter?.getMovieOverview()
-        movieBackdropImage.loadImage(imageUrl: presenter?.getMovieImage())
+        
+        if let url = presenter?.getMovieImage(){
+            movieBackdropImage.loadImage(imageUrl: url)
+        }else{
+            movieBackdropImage.image = UIImage.init(named: "no_image")
+        }
     }
 }
