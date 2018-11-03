@@ -24,6 +24,7 @@ class MovieDetailView: UIViewController, MovieDetailPresenterToViewProtocol{
     }
     
     func updateMovieInfo() {
+        self.title = presenter?.getMovieTitle()
         movieTitle.text = presenter?.getMovieTitle()
         movieGenres.text = presenter?.getMovieGenres()
         movieReleaseDate.text = presenter?.getMovieReleaseDate()
