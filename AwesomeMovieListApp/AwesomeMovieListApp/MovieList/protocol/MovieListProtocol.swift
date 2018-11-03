@@ -25,10 +25,12 @@ protocol MovieListViewToPresenterProtocol{
     func getMovieReleaseDateForRow(rowNumber: Int) -> String?
     func getMovieImageForRow(rowNumber: Int) ->URL?
     func movieSelected(rowNumber: Int)
+    func filterMovieList(searchText: String)
 }
 
 protocol MovieListPresenterToViewProtocol {
     func updateTableView()
+    func isSearchBeingUsed() -> Bool
 }
 
 protocol MovieListPresenterToRouterProtocol {

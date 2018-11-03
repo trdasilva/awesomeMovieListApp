@@ -17,6 +17,7 @@ class MovieListPresenter : MovieListViewToPresenterProtocol {
     
     let disposeBag = DisposeBag()
     var  movieList : [Movie]? = nil
+    var  filteredMovieList : [Movie]? = nil
     var currentPage: Int = 0
     var totalPages: Int = 0
     var totalMovies: Int = 0
@@ -42,6 +43,14 @@ class MovieListPresenter : MovieListViewToPresenterProtocol {
     func prefetchMoreMovies(){
         getMoreMovies()
     }
+    
+    func filterMovieList(searchText: String) {
+        filteredMovieList = movieList?.filter{ movie -> Bool in
+            return movie.title?.uppercased().contains(searchText.uppercased()) ?? false
+        }
+        view?.updateTableView()
+    }
+
     
     private func getMoreMovies(){
         fetchMoviesPage(page: currentPage + 1)
@@ -83,7 +92,18 @@ class MovieListPresenter : MovieListViewToPresenterProtocol {
         }
     }
     
+    private func getCurrentMovieSource() -> [Movie]? {
+        if(view?.isSearchBeingUsed() ?? false){
+            return filteredMovieList
+        }else{
+            return movieList
+        }
+    }
+    
     func getNumberOfRowForSecton(section: Int) -> Int {
+        if(view?.isSearchBeingUsed() ?? false){
+            return filteredMovieList?.count ?? 0
+        }
         return totalMovies
     }
     
@@ -92,27 +112,27 @@ class MovieListPresenter : MovieListViewToPresenterProtocol {
     }
     
     func getMovieTitleForRow(rowNumber: Int) -> String?{
-        return movieList?[rowNumber].title
+        return getCurrentMovieSource()?[rowNumber].title
     }
     
     func getMovieGenresForRow(rowNumber: Int) -> String?{
-        return movieList?[rowNumber].genres
+        return getCurrentMovieSource()?[rowNumber].genres
     }
     
     func getMovieImageForRow(rowNumber: Int) ->URL?{
-        if let backdropUrl = movieList?[rowNumber].backdropImageUrl {
+        if let backdropUrl = getCurrentMovieSource()?[rowNumber].backdropImageUrl {
                 return backdropUrl
         }else{
-            return movieList?[rowNumber].posterImageUrl
+            return getCurrentMovieSource()?[rowNumber].posterImageUrl
         }
     }
     
     func getMovieReleaseDateForRow(rowNumber: Int) -> String?{
-        return movieList?[rowNumber].releaseDate
+        return getCurrentMovieSource()?[rowNumber].releaseDate
     }
     
     func movieSelected(rowNumber: Int) {
-        if let movie = movieList?[rowNumber] {
+        if let movie = getCurrentMovieSource()?[rowNumber] {
             router?.showMovieDetail(movieData: movie)
         }
     }
