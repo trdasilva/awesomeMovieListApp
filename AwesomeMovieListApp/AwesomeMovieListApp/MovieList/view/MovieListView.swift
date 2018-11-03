@@ -13,22 +13,55 @@ class MovieListView: UIViewController,MovieListPresenterToViewProtocol {
     
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var errorView: UIView!
     
     var presenter : MovieListViewToPresenterProtocol? = nil
     let searchController = UISearchController(searchResultsController: nil)
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Awesome Movie App"
         MovieListRouter.createMovieListModule(view: self)
+        errorView.isHidden = true
         setupSearchBar()
+        setupRefreshControl()
         presenter?.viewLoaded()
     }
 
+    @IBAction func tapToRetry(_ sender: Any) {
+        self.errorView.isHidden = true
+        presenter?.prefetchMoreMovies()
+    }
+    
+    func showErrorView(){
+        self.errorView.isHidden = false
+    }
+    
+    func stopRefreshing(){
+        self.refreshControl.endRefreshing()
+    }
+    
     func updateTableView() {
+        self.refreshControl.endRefreshing()
         self.loadingIndicator.isHidden = true
+        self.errorView.isHidden = true
         self.tableView.reloadData()
+    }
+    
+    private func setupRefreshControl(){
+        tableView.refreshControl = refreshControl
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        
+        let colorAttribute = [NSAttributedString.Key.foregroundColor: UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0) ]
+        let attributedString = NSAttributedString(string: "Refreshing movie list", attributes: colorAttribute)
+        refreshControl.attributedTitle = attributedString
+        refreshControl.addTarget(self, action: #selector(refreshList(_:)), for:.valueChanged)
+    }
+    
+    @objc private func refreshList(_ sender: Any){
+        presenter?.prefetchMoreMovies()
     }
     
     private func setupSearchBar(){

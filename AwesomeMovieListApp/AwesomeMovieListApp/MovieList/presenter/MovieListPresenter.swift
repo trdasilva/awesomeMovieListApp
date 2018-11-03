@@ -70,6 +70,10 @@ class MovieListPresenter : MovieListViewToPresenterProtocol {
             onError: { error in
                 print("An error occurred :" + error.localizedDescription)
                 self.isLoadingMovies = false
+                self.view?.stopRefreshing()
+                if(self.currentPage == 0){
+                    self.view?.showErrorView()
+                }
         },
             onCompleted: {
                 self.view?.updateTableView()

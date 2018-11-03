@@ -30,6 +30,8 @@ protocol MovieListViewToPresenterProtocol{
 
 protocol MovieListPresenterToViewProtocol {
     func updateTableView()
+    func showErrorView()
+    func stopRefreshing()
     func isSearchBeingUsed() -> Bool
 }
 
