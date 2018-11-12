@@ -28,7 +28,7 @@ class MovieDetailRouter{
         }
     }
     
-    private static var mainStoryboard: UIStoryboard {
+    class var mainStoryboard: UIStoryboard {
         return UIStoryboard(name: "Main", bundle: Bundle.main)
     }
 }

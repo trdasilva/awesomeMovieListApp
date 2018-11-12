@@ -15,6 +15,12 @@ target 'AwesomeMovieListApp' do
 
   target 'AwesomeMovieListAppTests' do
     inherit! :search_paths
+    pod 'ObjectMapper', '~> 3.3'
+    pod 'AlamofireImage', '~> 3.4'
+    pod 'Alamofire', '~> 4.7'
+    pod 'RxBlocking', '~> 4.0'
+    pod 'RxSwift',    '~> 4.0'
+    pod 'RxTest',     '~> 4.0'
     # Pods for testing
   end
 
