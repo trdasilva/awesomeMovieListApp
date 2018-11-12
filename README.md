@@ -2,7 +2,7 @@
 
 For this project, I decided to use VIPER architecture pattern, I choose it over MVP or MVVM pattern because of VIPER focus on the clean architecture concepts.
 <br>Basically, we have two main modules, MovieList and MovieDetail, representing the main features of the app, each module contains the respective presenter, view, router e interactor if needed. 
-On the main screen, I used the card concept to represent each movie on the list.
+<br>On the main screen, I used the card concept to represent each movie on the list.
 
 # Libraries
 
