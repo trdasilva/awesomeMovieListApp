@@ -1,3 +1,12 @@
 # Awesome Movie List App
 
-For this project, I decided to use VIPER architecture pattern, I choose it over MVP or MVVM pattern because of VIPER "force" us to use the clean architecture concepts.
+For this project, I decided to use VIPER architecture pattern, I choose it over MVP or MVVM pattern because of VIPER focus on the clean architecture concepts.
+Basically, we have two main modules, MovieList and MovieDetail, representing the main features of the app, each module contains the respective presenter, view, router e interactor if needed. 
+On the main screen, I used the card concept to represent each movie on the list.
+
+#Library
+
+##Alamofire
+One of the most known and reliable networking library for iOS. Besides, this lib is simple to use and has a large community with multiples plugins available.
+All networks request within this app is made using this library
+
