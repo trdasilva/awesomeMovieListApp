@@ -1,0 +1,19 @@
+sources:
+  include:
+    - ./AwesomeMovieListApp
+    - ./AwesomeMovieListAppTests
+templates:
+  - ./Pods/SwiftyMocky/Sources/Templates # Different for Carthage installation
+output:
+  ./AwesomeMovieListApp
+args:
+  testable:
+    - AwesomeMovieListApp
+  import:
+    - RxSwift
+    - RxBlocking
+  excludedSwiftLintRules:
+    - force_cast
+    - function_body_length
+    - line_length
+    - vertical_whitespace

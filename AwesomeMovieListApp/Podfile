@@ -1,0 +1,32 @@
+platform :ios, '12.0'
+
+target 'AwesomeMovieListApp' do
+  use_frameworks!
+  
+  pod 'Alamofire', '~> 4.7'
+  pod 'ObjectMapper', '~> 3.3'
+  pod 'AlamofireObjectMapper', '~> 5.0'
+  pod 'RxAlamofire+ObjectMapper', '~> 0.1.3.1'
+  pod 'RxAlamofire', '~> 4.3'
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
+  pod 'AlamofireImage', '~> 3.4'
+  # Pods for AwesomeMovieListApp
+
+  target 'AwesomeMovieListAppTests' do
+    inherit! :search_paths
+    pod 'ObjectMapper', '~> 3.3'
+    pod 'AlamofireImage', '~> 3.4'
+    pod 'Alamofire', '~> 4.7'
+    pod 'RxBlocking', '~> 4.0'
+    pod 'RxSwift',    '~> 4.0'
+    pod 'RxTest',     '~> 4.0'
+    # Pods for testing
+  end
+
+  target 'AwesomeMovieListAppUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
